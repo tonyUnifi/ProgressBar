@@ -16,7 +16,11 @@ add_executable(ProgressBar main.cpp
         FileLoader.h
         FileLoader.cpp
         ProgressBar.h
-        ProgressBar.cpp)
+        ProgressBar.cpp
+        Observer.h
+        Observer.cpp
+        Subject.h
+        Subject.cpp)
 
 target_link_libraries(ProgressBar
         Qt::Core
