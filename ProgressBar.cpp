@@ -4,12 +4,21 @@
 
 #include "ProgressBar.h"
 
-ProgressBar::ProgressBar(int length, QWidget* window) {
+#include <QApplication>
+
+ProgressBar::ProgressBar(QWidget* window, FileLoader* fileLoader) {
+    fileLoader -> subscribe(this);
     progressBar = new QProgressBar(window);
-    progressBar -> setRange(0, length);
+    progressBar -> setRange(0, fileLoader -> getTotalSteps());
     progressBar -> setValue(0);
 }
 
 QProgressBar* ProgressBar::getQProgressBar() {
     return progressBar;
+}
+
+void ProgressBar::update() {
+    int currentValue = progressBar -> value();
+    progressBar -> setValue(currentValue + 1);
+    QApplication::processEvents();
 }

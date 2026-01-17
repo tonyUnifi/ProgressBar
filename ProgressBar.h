@@ -5,18 +5,19 @@
 #ifndef PROGRESSBAR_PROGRESSBAR_H
 #define PROGRESSBAR_PROGRESSBAR_H
 #include <QProgressBar>
+#include "Observer.h"
+#include "FileLoader.h"
 
-class ProgressBar: public QObject {
+class ProgressBar: public QObject, public Observer {
     Q_OBJECT
 public:
-    explicit ProgressBar(int length, QWidget* window);
+    explicit ProgressBar(QWidget* window, FileLoader* fileLoader);
 
     QProgressBar* getQProgressBar();
 
+    void update() override;
 private:
     QProgressBar* progressBar;
-
-
 };
 
 

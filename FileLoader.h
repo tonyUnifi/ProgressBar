@@ -4,11 +4,14 @@
 
 #include <string>
 #include <fstream>
+
+#include "Observer.h"
+#include "Subject.h"
 #ifndef PROGRESSBAR_FILELOADER_H
 #define PROGRESSBAR_FILELOADER_H
 
 
-class FileLoader {
+class FileLoader: public Subject {
 public:
     explicit FileLoader(std::string fileName);
 
@@ -19,6 +22,12 @@ public:
     void loadFile();
 
     std::string getFileContent() const;
+
+    void subscribe(Observer* observer) override;
+
+    void unsubscribe(Observer *observer) override;
+
+    void notify() override;
 private:
     std::string fileName;
     int currentSteps;

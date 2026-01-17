@@ -32,10 +32,25 @@ void FileLoader::loadFile() {
     while (file.get(c)) {
         fileContent += c;
         currentSteps++;
+        notify();
     }
     file.close();
 }
 
 std::string FileLoader::getFileContent() const {
     return fileContent;
+}
+
+void FileLoader::subscribe(Observer* observer) {
+    observers.push_back(observer);
+}
+
+void FileLoader::unsubscribe(Observer *observer) {
+    observers.remove(observer);
+}
+
+void FileLoader::notify() {
+    for (auto observer : observers) {
+        observer -> update();
+    }
 }
