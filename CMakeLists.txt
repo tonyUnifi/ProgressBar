@@ -12,7 +12,9 @@ find_package(Qt6 COMPONENTS
         Widgets
         REQUIRED)
 
-add_executable(ProgressBar main.cpp)
+add_executable(ProgressBar main.cpp
+        FileLoader.h
+        FileLoader.cpp)
 
 target_link_libraries(ProgressBar
         Qt::Core
