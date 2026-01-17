@@ -14,7 +14,9 @@ find_package(Qt6 COMPONENTS
 
 add_executable(ProgressBar main.cpp
         FileLoader.h
-        FileLoader.cpp)
+        FileLoader.cpp
+        ProgressBar.h
+        ProgressBar.cpp)
 
 target_link_libraries(ProgressBar
         Qt::Core
