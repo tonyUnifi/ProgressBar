@@ -10,16 +10,20 @@
 
 class FileLoader {
 public:
-    FileLoader(std::string fileName);
+    explicit FileLoader(std::string fileName);
 
     int getCurrentSteps() const;
 
     int getTotalSteps() const;
 
+    void loadFile();
+
+    std::string getFileContent() const;
 private:
     std::string fileName;
     int currentSteps;
     int totalSteps;
+    std::string fileContent;
 };
 
 
