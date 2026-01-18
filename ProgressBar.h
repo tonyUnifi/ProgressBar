@@ -8,8 +8,7 @@
 #include "Observer.h"
 #include "FileLoader.h"
 
-class ProgressBar: public QObject, public Observer {
-    Q_OBJECT
+class ProgressBar: public Observer {
 public:
     explicit ProgressBar(QWidget* window, Subject* subjectLoader, int length);
 
