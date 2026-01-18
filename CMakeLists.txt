@@ -2,6 +2,9 @@ cmake_minimum_required(VERSION 4.0)
 project(ProgressBar)
 
 set(CMAKE_CXX_STANDARD 20)
+
+add_subdirectory(Google_tests)
+
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 set(CMAKE_AUTOUIC ON)
@@ -20,7 +23,9 @@ add_executable(ProgressBar main.cpp
         Observer.h
         Observer.cpp
         Subject.h
-        Subject.cpp)
+        Subject.cpp
+        FileLoaderQt.h
+        FileLoaderQt.cpp)
 
 target_link_libraries(ProgressBar
         Qt::Core
