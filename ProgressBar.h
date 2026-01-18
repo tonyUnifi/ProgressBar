@@ -11,13 +11,16 @@
 class ProgressBar: public QObject, public Observer {
     Q_OBJECT
 public:
-    explicit ProgressBar(QWidget* window, FileLoader* fileLoader);
+    explicit ProgressBar(QWidget* window, FileLoader* subjectLoader);
+
+    ~ProgressBar();
 
     QProgressBar* getQProgressBar();
 
     void update() override;
 private:
     QProgressBar* progressBar;
+    Subject* subjectLoader;
 };
 
 

@@ -3,14 +3,18 @@
 //
 
 #include "ProgressBar.h"
-
 #include <QApplication>
 
 ProgressBar::ProgressBar(QWidget* window, FileLoader* fileLoader) {
-    fileLoader -> subscribe(this);
+    subjectLoader = fileLoader;
+    subjectLoader -> subscribe(this);
     progressBar = new QProgressBar(window);
     progressBar -> setRange(0, fileLoader -> getTotalSteps());
     progressBar -> setValue(0);
+}
+
+ProgressBar::~ProgressBar() {
+    subjectLoader -> unsubscribe(this);
 }
 
 QProgressBar* ProgressBar::getQProgressBar() {
