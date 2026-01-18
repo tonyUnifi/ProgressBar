@@ -4,16 +4,13 @@
 
 #include <string>
 #include <fstream>
-#include <QObject>
 
 #include "Observer.h"
 #include "Subject.h"
 #ifndef PROGRESSBAR_FILELOADER_H
 #define PROGRESSBAR_FILELOADER_H
 
-
-class FileLoader: public QObject, public Subject {
-    Q_OBJECT
+class FileLoader: public Subject {
 public:
     explicit FileLoader(std::string fileName);
 
@@ -28,7 +25,7 @@ public:
     void unsubscribe(Observer *observer) override;
 
     void notify() override;
-public slots:
+
     void loadFile();
 private:
     std::string fileName;

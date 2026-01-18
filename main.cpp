@@ -3,6 +3,7 @@
 #include <QPushButton>
 #include <QVBoxLayout>
 #include "FileLoader.h"
+#include "FileLoaderQt.h"
 #include "ProgressBar.h"
 
 const int WINDOW_WIDTH = 640;
@@ -20,9 +21,9 @@ int main(int argc, char *argv[]) {
     QVBoxLayout* layout = new QVBoxLayout(&window);
 
     //fileloader
-    FileLoader* fileLoader = nullptr;
+    FileLoaderQt* fileLoader = nullptr;
     try {
-        fileLoader = new FileLoader("myFile.txt");
+        fileLoader = new FileLoaderQt("myFile.txt");
     } catch (const std::runtime_error& e) {
         std::cout << e.what() << std::endl;
         return 1;
@@ -39,7 +40,7 @@ int main(int argc, char *argv[]) {
 
     //connection between start button and loadFile()
     QObject::connect(button, &QPushButton::clicked,
-                 fileLoader, &FileLoader::loadFile);
+                 fileLoader, &FileLoaderQt::startLoadingFile);
 
     window.show();
 
