@@ -29,7 +29,7 @@ int main(int argc, char *argv[]) {
     }
 
     //progress bar
-    ProgressBar progressBar(&window, fileLoader);
+    ProgressBar progressBar(&window, fileLoader, fileLoader -> getTotalSteps());
     layout -> addWidget(progressBar.getQProgressBar());
 
     //button config

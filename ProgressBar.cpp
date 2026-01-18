@@ -5,11 +5,11 @@
 #include "ProgressBar.h"
 #include <QApplication>
 
-ProgressBar::ProgressBar(QWidget* window, FileLoader* fileLoader) {
+ProgressBar::ProgressBar(QWidget* window, Subject* fileLoader, int length) {
     subjectLoader = fileLoader;
     subjectLoader -> subscribe(this);
     progressBar = new QProgressBar(window);
-    progressBar -> setRange(0, fileLoader -> getTotalSteps());
+    progressBar -> setRange(0, length);
     progressBar -> setValue(0);
 }
 

@@ -11,7 +11,7 @@
 class ProgressBar: public QObject, public Observer {
     Q_OBJECT
 public:
-    explicit ProgressBar(QWidget* window, FileLoader* subjectLoader);
+    explicit ProgressBar(QWidget* window, Subject* subjectLoader, int length);
 
     ~ProgressBar();
 
