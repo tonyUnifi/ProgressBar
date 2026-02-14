@@ -33,3 +33,8 @@ target_link_libraries(ProgressBar
         Qt::Widgets
 )
 
+configure_file(
+        "${CMAKE_CURRENT_SOURCE_DIR}/myFile.txt"
+        "${CMAKE_CURRENT_BINARY_DIR}/myFile.txt"
+        COPYONLY
+)
